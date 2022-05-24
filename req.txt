@@ -1,0 +1,10 @@
+Django
+django-rest-framework
+psycopg2-binary
+Pillow
+python-decouple
+transliterate
+drf-yasg
+django-filter
+django-ckeditor
+django-colorfield
