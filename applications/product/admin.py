@@ -14,8 +14,8 @@ class InlineProductImage(admin.TabularInline):
 
 class ProductAdminDisplay(admin.ModelAdmin):
     inlines = [InlineProductImage, ]
-    list_display = ('title', 'in_stock', 'quantity', 'image', 'color')
-    list_editable = ('in_stock', 'quantity')
+    list_display = ('title', 'hit', 'quantity', 'image', 'color')
+    list_editable = ('hit', 'quantity')
     search_fields = ('title', )
     list_filter = ('collections', )
 
