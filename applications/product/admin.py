@@ -9,12 +9,12 @@ from ckeditor_uploader.widgets import CKEditorUploadingWidget
 class InlineProductImage(admin.TabularInline):
     model = ProductImage
     extra = 1
-    fields = ['image', ]
+    fields = ['image', 'color']
 
 
 class ProductAdminDisplay(admin.ModelAdmin):
     inlines = [InlineProductImage, ]
-    list_display = ('title', 'hit', 'quantity', 'image', 'color')
+    list_display = ('title', 'hit', 'quantity', 'image', )
     list_editable = ('hit', 'quantity')
     search_fields = ('title', )
     list_filter = ('collections', )

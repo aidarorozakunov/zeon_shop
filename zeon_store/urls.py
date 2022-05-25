@@ -22,16 +22,11 @@ schema_view = get_schema_view(
    permission_classes=(permissions.AllowAny,),
 )
 
-# urlpatterns = [
-#    url(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
-#    url(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-#    url(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
-# ]
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('collection/', include('applications.collection.urls')),
     path('product/', include('applications.product.urls')),
+    path('about-us/', include('applications.about_us.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('swagger(.json|.yaml)', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
