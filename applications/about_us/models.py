@@ -3,16 +3,16 @@ from ckeditor.fields import RichTextField
 
 
 class About(models.Model):
+    image = models.ImageField(upload_to='')
     title = models.CharField(max_length=150)
     description = RichTextField()
-    image = models.ImageField(upload_to='about_photo')
 
 
 class AboutImage(models.Model):
-    about_us = models.ForeignKey(About, on_delete=models.CASCADE, related_name='about')
+    about = models.ForeignKey(About, on_delete=models.CASCADE, related_name='about')
 
     def __str__(self):
-        return self.about_us.title
+        return self.about.title
 
 
 class Help(models.Model):
@@ -49,7 +49,15 @@ class Advantages(models.Model):
 
 
 class AdvantagesImage(models.Model):
-    advantages = models.ForeignKey(Advantages, on_delete=models.CASCADE, related_name='news')
+    advantages = models.ForeignKey(Advantages, on_delete=models.CASCADE, related_name='advantages')
 
     def __str__(self):
         return self.advantages.title
+
+
+class Offer(models.Model):
+    title = models.CharField(max_length=50)
+    offer = RichTextField()
+
+    def __str__(self):
+        return self.title

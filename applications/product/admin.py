@@ -1,15 +1,19 @@
-from ckeditor_uploader import forms
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
 from applications.product.models import Product, ProductImage
-from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 
 class InlineProductImage(admin.TabularInline):
     model = ProductImage
     extra = 1
     fields = ['image', 'color']
+    max_num = 8
+    # def get_max_num(self, request, obj=None, **kwargs):
+    #     max_num = 8
+    #     if obj and obj.parent:
+    #         return max_num - 5
+    #     return max_num
 
 
 class ProductAdminDisplay(admin.ModelAdmin):

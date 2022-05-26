@@ -1,7 +1,8 @@
 from rest_framework import generics
 
-from applications.about_us.models import About, Help, News
-from applications.about_us.serializers import AboutSerializer, HelpSerializer, NewsSerializer, AdvantagesSerializer
+from applications.about_us.models import About, Help, News, Offer
+from applications.about_us.serializers import AboutSerializer, HelpSerializer, NewsSerializer, AdvantagesSerializer, \
+    OfferSerializer
 
 
 class AboutListView(generics.ListAPIView):
@@ -22,3 +23,8 @@ class NewsListView(generics.ListAPIView):
 class AdvantagesListView(generics.ListAPIView):
     queryset = News.objects.all()
     serializer_class = AdvantagesSerializer
+
+
+class OfferListView(generics.ListAPIView):
+    queryset = Offer.objects.all()
+    serializer_class = OfferSerializer

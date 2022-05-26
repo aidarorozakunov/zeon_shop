@@ -1,7 +1,12 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+# from applications.collection.views import CollectionsListView
+from applications.collection.views import CollectionViewSet
 
-from applications.collection.views import CollectionsListView
+router = DefaultRouter()
 
+router.register('product', CollectionViewSet)
+#
 urlpatterns = [
-    path('list/', CollectionsListView.as_view()),
+    path('', include(router.urls)),
 ]

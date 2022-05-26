@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from applications.about_us.models import About, AboutImage, Help, News, NewsImage, Advantages, AdvantagesImage
+from applications.about_us.models import About, AboutImage, Help, News, NewsImage, Advantages, AdvantagesImage, Offer
 
 
 class AboutSerializer(serializers.ModelSerializer):
@@ -95,3 +95,10 @@ class AdvantagesImageSerializer(serializers.ModelSerializer):
         rep = super().to_representation(instance)
         rep['image'] = self._get_image_url(instance)
         return rep
+
+
+class OfferSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Offer
+        fields = '__all__'

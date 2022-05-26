@@ -8,12 +8,7 @@ class CollectionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Collections
         fields = '__all__'
-    #
-    # def to_representation(self, instance):
-    #     rep = super().to_representation(instance)
-    #     if not instance.parent:
-    #         rep.pop('parent')
-    #     return rep
+
 
 class CollectionsImageSerializer(serializers.ModelSerializer):
 
@@ -35,3 +30,5 @@ class CollectionsImageSerializer(serializers.ModelSerializer):
         rep = super().to_representation(instance)
         rep['image'] = self._get_image_url(instance)
         return rep
+
+

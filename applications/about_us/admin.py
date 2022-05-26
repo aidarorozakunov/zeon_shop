@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from applications.about_us.models import About, AboutImage, Help, NewsImage, News, Advantages
+from applications.about_us.models import About, AboutImage, Help, NewsImage, News, Advantages, Offer
 
 
 class AboutAdminDisplay(admin.ModelAdmin):
@@ -37,7 +37,12 @@ class InlineAdvantagesImage(admin.TabularInline):
     fields = ['image',]
 
 
+class OfferAdminDisplay(admin.ModelAdmin):
+    list_display = ('title', 'offer')
+
+
 admin.site.register(About, AboutAdminDisplay)
 admin.site.register(Help)
 admin.site.register(News)
 admin.site.register(Advantages)
+admin.site.register(Offer)

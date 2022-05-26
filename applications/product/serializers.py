@@ -3,6 +3,13 @@ from rest_framework import serializers
 from applications.product.models import Product, ProductImage
 
 
+class ProductSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Product
+        fields = '__all__'
+
+
 class ProductImageSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -25,8 +32,4 @@ class ProductImageSerializer(serializers.ModelSerializer):
         return rep
 
 
-class ProductSerializer(serializers.ModelSerializer):
 
-    class Meta:
-        model = Product
-        fields = '__all__'
