@@ -18,4 +18,7 @@ class Collections(models.Model):
 
 class CollectionsImage(models.Model):
     product = models.ForeignKey(Collections, on_delete=models.CASCADE, related_name='image')
-    image = models.ImageField(upload_to='collections_photo')
+    image = models.ImageField(upload_to='')
+
+
+
