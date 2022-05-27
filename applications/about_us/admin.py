@@ -1,20 +1,15 @@
 from django.contrib import admin
 
-from applications.about_us.models import About, AboutImage, Help, NewsImage, News, Advantages, Offer
-
-
-class AboutAdminDisplay(admin.ModelAdmin):
-    list_display = ('about', 'description')
-
-
-class InlineAboutImage(admin.TabularInline):
-    model = AboutImage
-    extra = 1
-    fields = ['image', ]
+from applications.about_us.models import Help, NewsImage, News, Advantages, Offer, HelpImage, About, AboutImage
 
 
 class HelpAdminDisplay(admin.ModelAdmin):
     list_display = ('question', 'answer')
+
+
+class InlineHelpImage(admin.ModelAdmin):
+    model = HelpImage
+    fields = ['image',]
 
 
 class NewsAdminDisplay(admin.ModelAdmin):
@@ -41,8 +36,18 @@ class OfferAdminDisplay(admin.ModelAdmin):
     list_display = ('title', 'offer')
 
 
-admin.site.register(About, AboutAdminDisplay)
+class AboutAdminDisplay(admin.ModelAdmin):
+    list_display = ('about', 'description')
+
+
+class InlineAboutImage(admin.TabularInline):
+    model = AboutImage
+    extra = 1
+    fields = ['image', ]
+
+
 admin.site.register(Help)
 admin.site.register(News)
 admin.site.register(Advantages)
 admin.site.register(Offer)
+admin.site.register(About)

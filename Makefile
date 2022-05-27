@@ -5,3 +5,5 @@ migrate:
 	python3 manage.py migrate
 run:
 	python3 manag.py runserver
+create:
+	python3 manage.py createsuperuser

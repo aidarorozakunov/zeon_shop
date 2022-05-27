@@ -8,3 +8,4 @@ drf-yasg
 django-filter
 django-ckeditor
 django-colorfield
+django-uuslug
