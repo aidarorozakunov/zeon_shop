@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from applications.product.models import Product, ProductImage
+from applications.product.models import Product, ProductImage, SliderImage, Slider
 
 
 class InlineProductImage(admin.TabularInline):
@@ -31,7 +31,18 @@ class ProductAdminDisplay(admin.ModelAdmin):
             return ""
 
 
+class InlineSliderImage(admin.TabularInline):
+    model = SliderImage
+    fields = '__all__'
+
+
+class SliderAdminDisplay(admin.ModelAdmin):
+    inlines = [InlineProductImage, ]
+    list_display = ('link','image')
+
+
 admin.site.register(Product, ProductAdminDisplay)
+admin.site.register(Slider)
 
 
 

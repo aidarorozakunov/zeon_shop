@@ -2,25 +2,33 @@ from django.db import models
 from ckeditor.fields import RichTextField
 
 
-class About(models.Model):
-    image = models.ImageField(upload_to='')
-    title = models.CharField(max_length=150)
-    description = RichTextField()
-
-
-class AboutImage(models.Model):
-    about = models.ForeignKey(About, on_delete=models.CASCADE, related_name='about')
-
-    def __str__(self):
-        return self.about.title
+# class About(models.Model):
+#     image = models.ImageField(upload_to='')
+#     title = models.CharField(max_length=150)
+#     description = RichTextField()
+#
+#     def __str__(self):
+#         return self.title
+#
+#
+# class AboutImage(models.Model):
+#     about = models.ForeignKey(About, on_delete=models.CASCADE, related_name='about')
+#
+#     def __str__(self):
+#         return self.about.title
 
 
 class Help(models.Model):
+    image = models.ImageField(upload_to='')
     question = models.TextField()
     answer = models.TextField()
 
     def __str__(self):
         return self.question
+
+
+class HelpImage(models.Model):
+    help = models.ForeignKey(Help, on_delete=models.CASCADE, related_name='help')
 
 
 class News(models.Model):
@@ -61,3 +69,19 @@ class Offer(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class About(models.Model):
+    image = models.ImageField(upload_to='')
+    title = models.CharField(max_length=50)
+    text = RichTextField()
+
+    def __str__(self):
+        return self.title
+
+
+class AboutImage(models.Model):
+    about = models.ForeignKey(About, on_delete=models.CASCADE, related_name='about')
+
+    def __str__(self):
+        return self.about.title
